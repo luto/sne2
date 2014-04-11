@@ -1,0 +1,12 @@
+
+# deps
+node_modules
+app/bower_components
+
+# build
+dist
+.tmp
+
+# IDE
+.idea
+

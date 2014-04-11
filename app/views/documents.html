@@ -1,0 +1,11 @@
+<h1>Documents</h1>
+
+<ul>
+	<li ng-repeat="doc in documents">
+		<a href="{{ '/doc/' + doc.name }}">{{ doc.name }}</a>
+	</li>
+</ul>
+
+<div>
+	<button ng-click="createNewDocument()">Create Document</button>
+</div>

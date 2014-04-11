@@ -1,0 +1,33 @@
+<div ng-show="mode == 'edit'">
+	<div class="btn-group">
+		<button type="button" class="btn btn-primary" ng-model="note.type" btn-radio="'text'">Text</button>
+		<button type="button" class="btn btn-primary" ng-model="note.type" btn-radio="'link'">Link</button>
+		<button type="button" class="btn btn-primary" ng-model="note.type" btn-radio="'quote'">Quote</button>
+	</div>
+
+	<div ng-show="note.type == 'text'">
+		<span>Notiz: </span><input ng-model="note.text">
+	</div>
+	<div ng-show="note.type == 'link'">
+		<span>Beschreibung: </span><input ng-model="note.text"><br>
+		<span>Link: </span><input ng-model="note.link">
+	</div>
+	<div ng-show="note.type == 'quote'">
+		<span>Person: </span><input ng-model="note.human"><br>
+		<span>Zitat: </span><input ng-model="note.text">
+	</div>
+
+	<button class="btn btn-primary" ng-click="save()">Save</button>
+</div>
+
+<div ng-show="mode == 'view'">
+	<button ng-click="setMode('edit')">edit</button>
+
+	<div ng-show="note.type == 'text' || note.type == 'link'">
+		<span>{{ note.text }}</span>
+		<a ng-show="note.type == 'link'" href="{{ note.link }}">{{ note.link }}</a>
+	</div>
+	<div ng-show="note.type == 'quote'">
+		<span>"{{ note.text }}" ({{ note.human }})</span>
+	</div>
+</div>
