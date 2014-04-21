@@ -28,5 +28,7 @@ angular.module('sne2App', [
         redirectTo: '/'
       });
 
+    $locationProvider.html5Mode(true);
+
     RestangularProvider.setBaseUrl('http://localhost:2403/');
   });
