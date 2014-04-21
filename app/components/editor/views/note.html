@@ -21,8 +21,6 @@
 </div>
 
 <div ng-show="mode == 'view'">
-	<button ng-click="setMode('edit')">edit</button>
-
 	<div ng-show="note.type == 'text' || note.type == 'link'">
 		<span>{{ note.text }}</span>
 		<a ng-show="note.type == 'link'" href="{{ note.link }}">{{ note.link }}</a>
@@ -30,4 +28,6 @@
 	<div ng-show="note.type == 'quote'">
 		<span>"{{ note.text }}" ({{ note.human }})</span>
 	</div>
+
+	<button ng-click="setMode('edit')">edit</button>
 </div>

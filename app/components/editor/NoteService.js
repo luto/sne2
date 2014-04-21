@@ -14,7 +14,7 @@ angular.module('sne2App')
       }
 
       this.notes[note.id] = note;
-
+      defered.resolve(note);
 
       return defered.promise;
     };

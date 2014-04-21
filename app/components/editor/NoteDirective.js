@@ -5,11 +5,11 @@ angular.module('sne2App')
     return {
       restrict: 'E',
       scope: {
-        mode: '=mode',
-        note: '=?',
-        saveasdf: '='
+        mode: '@mode',
+        isFactory: '@?',
+        note: '=?'
       },
-      controller: function ($scope) {
+      controller: function ($scope, NoteService) {
 
         function reset() {
           $scope.note = {
@@ -17,11 +17,14 @@ angular.module('sne2App')
           };
         }
 
-        reset();
+        console.log($scope.modeFrozen)
+
+        if(!$scope.note) {
+          reset();
+        }
 
         $scope.setMode = function (mode) {
           $scope.mode = mode;
-          console.log(mode);
         };
 
         $scope.setNote = function (note) {
@@ -29,10 +32,17 @@ angular.module('sne2App')
         };
 
         $scope.save = function () {
-          $scope.saveasdf($scope.note);
-          reset();
+          NoteService.saveNote($scope.note).then(
+            function () {
+              if($scope.isFactory) {
+                reset();
+              } else {
+                $scope.setMode('view');
+              }
+            }
+          );
         };
       },
-      templateUrl: '../documentlist/views/note.html'
+      templateUrl: 'components/editor/views/note.html'
     };
   });

@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('sne2App')
-  .controller('EditorController', function ($scope, NoteService, notes) {
+  .controller('EditorController', function ($scope, NoteService) {
 
-    $scope.saveNote = NoteService.saveNote;
-    $scope.notes = NoteService.getNotes();
+    NoteService.getNotes().then(function (notes) {
+      $scope.notes = notes;
+    });
   });
