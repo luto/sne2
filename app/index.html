@@ -33,7 +33,7 @@
 <script src="bower_components/json3/lib/json3.min.js"></script>
 <![endif]-->
 
-<!-- build:js scripts/vendor.js -->
+<!-- build:js components/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
@@ -49,17 +49,17 @@
 <!-- endbower -->
 <!-- endbuild -->
 
-<!-- build:js({.tmp,app}) scripts/scripts.js -->
-<script src="scripts/app.js"></script>
+<!-- build:js({.tmp,app}) components/components.js -->
+<script src="components/app.js"></script>
 
-<script src="scripts/controllers/EditorController.js"></script>
-<script src="scripts/controllers/DocumentController.js"></script>
-<script src="scripts/controllers/NoteListController.js"></script>
+<script src="components/editor/EditorController.js"></script>
+<script src="components/documentlist/DocumentController.js"></script>
+<script src="components/editor/NoteListController.js"></script>
 
-<script src="scripts/services/NoteService.js"></script>
-<script src="scripts/services/DocumentService.js"></script>
+<script src="components/editor/NoteService.js"></script>
+<script src="components/documentlist/DocumentService.js"></script>
 
-<script src="scripts/directives/NoteDirective.js"></script>
+<script src="components/editor/NoteDirective.js"></script>
 <!-- endbuild -->
 </body>
 </html>

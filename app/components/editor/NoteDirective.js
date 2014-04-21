@@ -33,6 +33,6 @@ angular.module('sne2App')
           reset();
         };
       },
-      templateUrl: 'views/note.html'
+      templateUrl: '../documentlist/views/note.html'
     };
   });

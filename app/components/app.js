@@ -9,10 +9,10 @@ angular.module('sne2App', [
   'uuid4',
   'restangular'
 ])
-  .config(function ($routeProvider, RestangularProvider) {
+  .config(function ($routeProvider, $locationProvider, RestangularProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: '../views/documents.html',
+        templateUrl: 'components/editor/views/documents.html',
         controller: 'DocumentController',
         resolve: {
           documents: function (DocumentService) {
@@ -21,7 +21,7 @@ angular.module('sne2App', [
         }
       })
       .when('/doc/:id', {
-        templateUrl: '../views/editor.html',
+        templateUrl: 'components/documentlist/views/editor.html',
         controller: 'EditorController'
       })
       .otherwise({
