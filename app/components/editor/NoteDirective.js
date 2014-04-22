@@ -9,21 +9,22 @@ angular.module('sne2App')
         isFactory: '@?',
         note: '=?'
       },
-      controller: function ($scope, NoteService) {
+      controller: function ($scope, betterLogger, NoteService) {
+        betterLogger.setContext('NoteDirective');
 
         function reset() {
+          betterLogger.debug('reset');
           $scope.note = {
             type: 'text'
           };
         }
-
-        console.log($scope.modeFrozen)
 
         if(!$scope.note) {
           reset();
         }
 
         $scope.setMode = function (mode) {
+          betterLogger.debug('set mode', mode);
           $scope.mode = mode;
         };
 
@@ -32,6 +33,7 @@ angular.module('sne2App')
         };
 
         $scope.save = function () {
+          betterLogger.debug('save');
           NoteService.saveNote($scope.note).then(
             function () {
               if($scope.isFactory) {

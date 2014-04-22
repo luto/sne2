@@ -1,17 +1,18 @@
 'use strict';
 
 angular.module('sne2App')
-  .service('NoteService', function ($log, uuid4, $q, Restangular) {
+  .service('NoteService', function (betterLogger, uuid4, $q, Restangular) {
+    betterLogger.setContext('NoteService');
     this.notes = { };
 
     this.saveNote = function (note) {
       var defered = $q.defer();
 
-      $log.debug('add note', note);
-
       if (note.id === undefined) {
         note.id = uuid4.generate();
       }
+
+      betterLogger.debug('add note', note);
 
       this.notes[note.id] = note;
       defered.resolve(note);
