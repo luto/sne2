@@ -8,9 +8,10 @@ angular.module('sne2App', [
   'ui.bootstrap',
   'uuid4',
   'better-log',
-  'restangular'
+  'restangular',
+  'sne2app.config'
 ])
-  .config(function ($routeProvider, $locationProvider, RestangularProvider, betterLogProvider) {
+  .config(function ($routeProvider, $locationProvider, RestangularProvider, betterLogProvider, APIRURL) {
     $routeProvider
       .when('/', {
         templateUrl: 'components/documentlist/views/documents.html',
@@ -31,7 +32,7 @@ angular.module('sne2App', [
 
     $locationProvider.html5Mode(true);
 
-    RestangularProvider.setBaseUrl('http://localhost:2403/');
+    RestangularProvider.setBaseUrl(APIRURL);
 
     betterLogProvider.setPrependees(['time', 'context']);
   });

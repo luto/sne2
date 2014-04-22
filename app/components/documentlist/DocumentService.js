@@ -13,6 +13,6 @@ angular.module('sne2App')
     };
 
     this.getDocument = function (id) {
-      return documents.one()
+      return documents.one();
     };
   });
