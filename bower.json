@@ -13,6 +13,7 @@
     "angular-route": "1.2.16",
     "angular-bootstrap": "0.10.0",
     "angular-uuid4": "0.0.3",
+    "angular-better-log": "0.0.3",
     "restangular": "1.3.1"
   },
   "devDependencies": {
